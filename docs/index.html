@@ -7517,7 +7517,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Content-Refresh-Opportunity-Scoring-on-Search-Engine-Performance">Content Refresh Opportunity Scoring on Search Engine Performance<a class="anchor-link" href="#Content-Refresh-Opportunity-Scoring-on-Search-Engine-Performance">¶</a></h1><p><a href="https://github.com/ArnavP2305/flyrank-ml-internship-2/blob/main/work/notebooks/capstone.ipynb?flush_cache=true"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
+<h1 id="Content-Refresh-Opportunity-Scoring-on-Search-Engine-Performance">Content Refresh Opportunity Scoring on Search Engine Performance<a class="anchor-link" href="#Content-Refresh-Opportunity-Scoring-on-Search-Engine-Performance">¶</a></h1><p>[<em>An internship case study on the FlyRank SEO portfolio dataset.</em>]</p>
+<p><a href="https://github.com/ArnavP2305/flyrank-ml-internship-2/blob/main/work/notebooks/capstone.ipynb?flush_cache=true"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
 <h3 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">¶</a></h3><p>We investigate the problem of organic traffic decline in search engine performance and evaluate methods to prioritize pages for editorial refresh. Using a client-holdout validation design on historical search performance records, we compare a heuristic baseline against Logistic Regression and Random Forest models. We observe that Logistic Regression yields the strongest generalization performance, achieving a Precision@50 of 0.6600 (a 2.75x lift over the baseline rule). These results support a decision-support triage workflow to optimize editorial resource allocation without assuming direct algorithmic causation.</p>
 <hr/>
 </div>
@@ -7530,7 +7531,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Question-/-Problem-Statement">1. Question / Problem Statement<a class="anchor-link" href="#1.-Question-/-Problem-Statement">¶</a></h2><p>Content decay represents a major loss of organic visibility for large web portfolios. However, editorial resources are finite, and manually reviewing thousands of pages to identify which ones require updates is impractical.</p>
+<h2 id="1.-Question-/-Problem-Statement">1. Question / Problem Statement<a class="anchor-link" href="#1.-Question-/-Problem-Statement">¶</a></h2><p>Content decay represents a major loss of organic visibility for large web portfolios. Within the FlyRank portfolio dataset, thousands of pages are monitored for traffic. However, editorial resources are finite, and manually reviewing thousands of pages to identify which ones require updates is impractical.</p>
 <p>We address the question: <strong>Can we predict which content pages are at risk of traffic decline using historical search console metrics, and how can we rank optimization opportunities to maximize editorial efficiency?</strong></p>
 <p>This supports the decision of <strong>which pages content editors should rewrite or optimize first</strong>, minimizing the cost of editing healthy pages and the opportunity cost of neglecting high-traffic assets.</p>
 </div>
@@ -7955,11 +7956,11 @@ REFRESH_CONTENT         47
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="8.-Presentation-&amp;-Pitch-Materials-(ML-12)">8. Presentation &amp; Pitch Materials (ML-12)<a class="anchor-link" href="#8.-Presentation-&amp;-Pitch-Materials-(ML-12)">¶</a></h2><h3 id="5-Minute-Demo-Outline">5-Minute Demo Outline<a class="anchor-link" href="#5-Minute-Demo-Outline">¶</a></h3><ol>
-<li><strong>Slide 1: The Problem (1 Min):</strong> Show the content decline decay cliff. Explain the cost of manual triage    and the opportunity loss of content rot.</li>
-<li><strong>Slide 2: The Data &amp; Grain (1 Min):</strong> Show the gated Hugging Face warehouse grain: compound key of    <code>[client_hash_id, content_hash_id]</code> over Feb-Mar 2026 partitions.</li>
-<li><strong>Slide 3: Validation &amp; Snooping (1 Min):</strong> Explain why random splits leak client template context (0.80 Precision)    and show how client-holdout validation enforces honest generalization (0.56 Precision).</li>
-<li><strong>Slide 4: Results &amp; Playbook (1 Min):</strong> Show the lift table (Logistic Regression at 2.75x baseline)    and explain the action reason codes.</li>
-<li><strong>Slide 5: Live Demo (1 Min):</strong> Filter pages by <code>STALE_DECAY_RISK</code> and show the editor queue.</li>
+<li><strong>Question (1 Min):</strong> Show the content decline decay cliff. Explain the core question: How can we scale the prioritization of content refreshes to prevent organic traffic rots?</li>
+<li><strong>Method (1 Min):</strong> Explain the gated Hugging Face warehouse grain <code>[client_hash_id, content_hash_id]</code> over Feb-March 2026. Highlight the Client-Level holdout split validation design (GSS) that halts domain snooping.</li>
+<li><strong>One Chart (1 Min):</strong> Show the predicted decline probabilities histogram (<code>work/figures/capstone_decline_distribution.png</code>) outlining page segmentation.</li>
+<li><strong>One Honest Result (1 Min):</strong> Present the test split lift metrics (Logistic Regression Precision@50: <strong>0.6600</strong> vs. Heuristic Baseline: <strong>0.2400</strong>, a 2.75x lift over the baseline).</li>
+<li><strong>One Recommendation (1 Min):</strong> Walk through the <code>REFRESH_CONTENT</code> action rule (triggered by high decline probability $\ge 0.6$ + high staleness $\ge 180$ days) as a triage support guide.</li>
 </ol>
 <h3 id="Social-Post-Cut-(LinkedIn-/-Twitter)">Social Post Cut (LinkedIn / Twitter)<a class="anchor-link" href="#Social-Post-Cut-(LinkedIn-/-Twitter)">¶</a></h3><blockquote>
 <p>🔍 <strong>How do you scale SEO content refreshes without wasting writer hours?</strong><br/>
